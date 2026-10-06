@@ -5,10 +5,14 @@
   "compatibilityLevel": "JAVA_25",
   "client": [
     "AxeItemAccessor",
+    "BlockItemInvoker",
+    "EasyPlaceUtilsMixin",
+    "LitematicaInventoryUtilsMixin",
     "ConfigsMixin",
     "GuiConfigsMixin",
     "InputHandlerMixin",
-    "PlayerMoveC2SPacketMixin"
+    "PlayerMoveC2SPacketMixin",
+    "WorldUtilsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

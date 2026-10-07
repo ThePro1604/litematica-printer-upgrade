@@ -6,8 +6,10 @@
   "client": [
     "AxeItemAccessor",
     "BlockItemInvoker",
+    "ChunkRendererSchematicVboMixin",
     "EasyPlaceUtilsMixin",
     "LitematicaInventoryUtilsMixin",
+    "MaterialCacheInvoker",
     "ConfigsMixin",
     "GuiConfigsMixin",
     "InputHandlerMixin",

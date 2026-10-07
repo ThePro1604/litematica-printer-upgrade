@@ -1,6 +1,7 @@
 package me.aleksilassila.litematica.printer.implementation.mixin;
 
 import java.util.Optional;
+import me.aleksilassila.litematica.printer.InventoryRenderFilter;
 import me.aleksilassila.litematica.printer.LitematicaMixinMod;
 import me.aleksilassila.litematica.printer.Printer;
 import me.aleksilassila.litematica.printer.SchematicBlockState;
@@ -53,6 +54,8 @@ public class MixinClientPlayerEntity extends AbstractClientPlayer {
             Printer.printDebug("Initializing printer, player: {}, client: {}", clientPlayer, minecraft);
             LitematicaMixinMod.printer = new Printer(minecraft, clientPlayer);
         }
+
+        InventoryRenderFilter.onTick(clientPlayer);
 
         // Dirty optimization
         boolean didFindPlacement = true;

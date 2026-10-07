@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -21,7 +22,12 @@ import java.util.concurrent.ConcurrentHashMap;
  * taken on the client thread.
  */
 public class InventoryRenderFilter {
+    // Items that run out only count as missing after this long, so items that refill themselves
+    // (or are briefly moved around) don't make the schematic blink
+    private static final long MISSING_ITEM_DELAY_MS = 5000;
+
     private static final Map<BlockState, Item> REQUIRED_ITEMS = new ConcurrentHashMap<>();
+    private static final Map<Item, Long> LAST_SEEN = new HashMap<>();
     private static volatile Set<Item> availableItems = Set.of();
     private static volatile boolean enabled = false;
 
@@ -31,12 +37,19 @@ public class InventoryRenderFilter {
 
         if (!enabled) {
             if (wasEnabled) {
+                LAST_SEEN.clear();
                 SchematicWorldRefresher.INSTANCE.updateAll();
             }
             return;
         }
 
-        Set<Item> items = getInventoryItems(player);
+        long now = System.currentTimeMillis();
+        for (Item item : getInventoryItems(player)) {
+            LAST_SEEN.put(item, now);
+        }
+        LAST_SEEN.values().removeIf(lastSeen -> now - lastSeen > MISSING_ITEM_DELAY_MS);
+
+        Set<Item> items = Set.copyOf(LAST_SEEN.keySet());
 
         if (!wasEnabled || !items.equals(availableItems)) {
             availableItems = items;

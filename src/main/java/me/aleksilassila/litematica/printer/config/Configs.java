@@ -22,6 +22,9 @@ public class Configs {
     public static final ConfigBoolean INTERACT_BLOCKS = new ConfigBoolean("interactBlocks", true).apply(GENERIC_KEY);
     public static final ConfigBoolean PRINT_IN_AIR = new ConfigBoolean("printInAir", false).apply(GENERIC_KEY);
     public static final ConfigBoolean ROTATE = new ConfigBoolean("rotate", true).apply(GENERIC_KEY);
+    public static final ConfigBoolean EASY_PLACE_IGNORE_NBT = new ConfigBoolean("easyPlaceIgnoreNbt", false).apply(GENERIC_KEY);
+    public static final ConfigBoolean EASY_PLACE_AUTO_ROTATE = new ConfigBoolean("easyPlaceAutoRotate", false).apply(GENERIC_KEY);
+    public static final ConfigBoolean RENDER_ONLY_INVENTORY_BLOCKS = new ConfigBoolean("renderOnlyInventoryBlocks", false).apply(GENERIC_KEY);
 
     public static ImmutableList<IConfigBase> getConfigList() {
         List<IConfigBase> list = new java.util.ArrayList<>(fi.dy.masa.litematica.config.Configs.Generic.OPTIONS);
@@ -34,6 +37,9 @@ public class Configs {
         list.add(INTERACT_BLOCKS);
         list.add(PRINT_IN_AIR);
         list.add(ROTATE);
+        list.add(EASY_PLACE_IGNORE_NBT);
+        list.add(EASY_PLACE_AUTO_ROTATE);
+        list.add(RENDER_ONLY_INVENTORY_BLOCKS);
 
         return ImmutableList.copyOf(list);
     }

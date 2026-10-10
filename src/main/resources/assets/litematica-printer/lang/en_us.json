@@ -38,6 +38,13 @@
     "litematica-printer.config.generic.comment.easyPlaceAutoRotate": "Easy Place picks the player rotation and the clicked block face\nfor each placement, so the placed block is oriented the same way\nas in the schematic (stairs, logs, observers, trapdoors...).\nOnly used with the NONE or SLAB_ONLY Easy Place protocols.",
     "litematica-printer.config.generic.comment.renderOnlyInventoryBlocks": "Only render the schematic blocks you have the item for in your inventory.\nWorks together with the render layer modes.\nIncludes shulker box contents when pickBlockShulkers is enabled.",
 
+    "litematica-printer.gui.button.material_list.replace": "Replace",
+    "litematica-printer.gui.title.material_replace": "Replace %s with...",
+    "litematica-printer.gui.title.material_replace_confirm": "Replace material",
+    "litematica-printer.gui.message.material_replace_confirm": "Replace all %s with %s? This changes %s blocks in the placement '%s' and reloads it. The schematic file is not changed.",
+    "litematica-printer.message.material_replaced": "Replaced %s with %s, reloading the schematic",
+    "litematica-printer.message.material_replace_failed": "Could not replace %s with %s",
+
     "litematica-printer.config.hotkeys.name.print": "print",
     "litematica-printer.config.hotkeys.name.togglePrintingMode": "togglePrintingMode",
 

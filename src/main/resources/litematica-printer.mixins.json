@@ -8,11 +8,14 @@
     "ChunkRendererSchematicVboMixin",
     "EasyPlaceUtilsMixin",
     "LitematicaInventoryUtilsMixin",
+    "MaterialListPlacementAccessor",
     "MaterialCacheInvoker",
     "ConfigsMixin",
     "GuiConfigsMixin",
     "InputHandlerMixin",
     "PlayerMoveC2SPacketMixin",
+    "StandingAndWallBlockItemAccessor",
+    "WidgetMaterialListEntryMixin",
     "WorldUtilsMixin"
   ],
   "injectors": {

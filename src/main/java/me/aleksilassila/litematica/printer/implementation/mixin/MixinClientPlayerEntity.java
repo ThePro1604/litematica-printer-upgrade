@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import me.aleksilassila.litematica.printer.InventoryRenderFilter;
 import me.aleksilassila.litematica.printer.LitematicaMixinMod;
+import me.aleksilassila.litematica.printer.materials.MaterialReplacer;
 import me.aleksilassila.litematica.printer.Printer;
 import me.aleksilassila.litematica.printer.SchematicBlockState;
 
@@ -65,6 +66,7 @@ public class MixinClientPlayerEntity extends AbstractClientPlayer
 		}
 
 		InventoryRenderFilter.onTick(clientPlayer);
+		MaterialReplacer.onTick();
 
 		// Dirty optimization
 		boolean didFindPlacement = true;
